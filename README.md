@@ -2,10 +2,22 @@
 
 ### 🚧 This project is under development... 🚧
 
-# Run frontend
+## How to run this project
 
-`nx run frontend:serve`
+Run frontend: `npx nx run frontend:serve`
 
-# Run backend
+Run backend: `npx nx run backend:serve`
 
-`nx run backend:serve`
+## Setup a database
+
+Env setup your .env file with local database connection:
+
+```
+ DATABASE_URL="mysql://root:docker@localhost:3306/proffy?schema=public"
+```
+
+Generate prisma types with: `npx prisma generate`
+
+Prisma studio: `npx prisma studio`
+
+Generate migration: `npx prisma migrate dev`
