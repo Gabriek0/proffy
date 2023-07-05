@@ -2,7 +2,9 @@
   "name": "@myorg/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "postinstall": "npx prisma generate"
+  },
   "private": true,
   "devDependencies": {
     "@nestjs/schematics": "^10.0.1",
@@ -53,7 +55,7 @@
     "@nestjs/common": "^10.0.2",
     "@nestjs/core": "^10.0.2",
     "@nestjs/platform-express": "^10.0.2",
-    "@prisma/client": "^4.16.1",
+    "@prisma/client": "^4.16.2",
     "axios": "^1.0.0",
     "git-commit-msg-linter": "^5.0.4",
     "next": "13.4.1",
