@@ -7,7 +7,7 @@ export class UserController {
   // Dependency injection
   constructor(private readonly UserService: UserService) {}
 
-  @Post('/create')
+  @Post('')
   createUser(@Body() user: CreateUserDTO) {
     return this.UserService.createUser(user);
   }
