@@ -4,11 +4,10 @@ import { CreateUserDTO } from './dto/create-user.dto';
 
 @Controller('user')
 export class UserController {
-  // Dependency injection
-  constructor(private readonly UserService: UserService) {}
+  constructor(private readonly userService: UserService) {}
 
   @Post('')
   createUser(@Body() user: CreateUserDTO) {
-    return this.UserService.createUser(user);
+    return this.userService.createUser(user);
   }
 }
