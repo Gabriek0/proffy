@@ -11,7 +11,7 @@ export class UserService {
   async create(user: CreateUserDTO): Promise<User> {
     const passwordHash = await bcrypt.hash(user.password, 10);
 
-    const user_created = await this.prisma.user.create({
+    const userCreated = await this.prisma.user.create({
       data: {
         email: user.email,
         name: user.name,
@@ -19,6 +19,6 @@ export class UserService {
       },
     });
 
-    return user_created;
+    return userCreated;
   }
 }
