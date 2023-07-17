@@ -1,11 +1,8 @@
 import { Injectable } from '@nestjs/common';
-
-import { DatabaseService } from '../database/database.service';
-
-import { CreateUserDTO } from './dto/create-user.dto';
-
-import bcrypt from 'bcrypt';
 import { User } from '@prisma/client';
+import bcrypt from 'bcrypt';
+import { DatabaseService } from '../database/database.service';
+import { CreateUserDTO } from './dto/create-user.dto';
 
 @Injectable()
 export class UserService {
