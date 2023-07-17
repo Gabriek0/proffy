@@ -11,7 +11,7 @@ import { User } from '@prisma/client';
 export class UserService {
   constructor(private readonly prisma: DatabaseService) {}
 
-  async createUser(user: CreateUserDTO): Promise<User> {
+  async create(user: CreateUserDTO): Promise<User> {
     const passwordHash = await bcrypt.hash(user.password, 10);
 
     const user_created = await this.prisma.user.create({
