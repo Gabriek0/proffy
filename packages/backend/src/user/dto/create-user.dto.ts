@@ -34,7 +34,7 @@ export class CreateUserDTO extends User {
   })
   @ApiProperty({
     description: 'User password',
-    example: 'Ex4mple_strong_password@',
+    example: 'Password@_exampl3',
     minimum: 4,
     maximum: 20,
     required: true,
