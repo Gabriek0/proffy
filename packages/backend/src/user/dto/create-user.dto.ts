@@ -6,13 +6,16 @@ import {
   MinLength,
 } from 'class-validator';
 
+import { ApiProperty } from '@nestjs/swagger';
 import { User } from '../entities/user.entity';
 
 export class CreateUserDTO extends User {
   @IsString()
+  @ApiProperty()
   name: string;
 
   @IsEmail()
+  @ApiProperty()
   email: string;
 
   @IsString()
@@ -21,5 +24,6 @@ export class CreateUserDTO extends User {
   @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
     message: 'Your password is too weak',
   })
+  @ApiProperty()
   password: string;
 }
