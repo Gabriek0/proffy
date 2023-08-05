@@ -5,5 +5,5 @@ interface InputProps {
 }
 
 export function InputIcon({ icon: Icon }: InputProps) {
-  return <Icon />;
+  return <Icon className="absolute right-[24px] top-[24px] bottom-[24px]" />;
 }

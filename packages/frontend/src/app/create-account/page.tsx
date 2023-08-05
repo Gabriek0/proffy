@@ -1,3 +1,4 @@
+import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 
 export default async function CreateAccountPage() {
@@ -29,7 +30,7 @@ export default async function CreateAccountPage() {
             <Input.Content label="Senha" name="password" type="password" />
           </Input.Root>
 
-          <button>Concluir Cadastro</button>
+          <Button>Concluir Cadastro</Button>
         </form>
       </section>
 
