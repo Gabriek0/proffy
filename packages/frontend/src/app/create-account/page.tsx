@@ -13,7 +13,7 @@ export default async function CreateAccountPage() {
         </h2>
 
         <form action="" className="mt-[2rem]">
-          <Input.Root>
+          <Input.Root variantStyle="topRounded">
             <Input.Content label="Nome" name="first_name" />
           </Input.Root>
 
@@ -22,11 +22,11 @@ export default async function CreateAccountPage() {
           </Input.Root>
 
           <Input.Root>
-            <Input.Content label="E-mail" name="email" />
+            <Input.Content label="E-mail" name="email" type="email" />
           </Input.Root>
 
-          <Input.Root>
-            <Input.Content label="Senha" name="password" />
+          <Input.Root variantStyle="bottomRounded">
+            <Input.Content label="Senha" name="password" type="password" />
           </Input.Root>
 
           <button>Concluir Cadastro</button>
