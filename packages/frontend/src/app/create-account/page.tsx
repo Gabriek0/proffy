@@ -1,7 +1,11 @@
+import { Input } from '../../components/Input';
+
 export default async function CreateAccountPage() {
   return (
     <>
-      <h1>Teste</h1>
+      <Input.Root>
+        <Input.Content label="Nome" name="name" />
+      </Input.Root>
     </>
   );
 }
