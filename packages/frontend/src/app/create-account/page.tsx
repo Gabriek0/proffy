@@ -36,9 +36,7 @@ export default async function CreateAccountPage() {
         </Form.Content>
       </Section.Form>
 
-      <Section.Hero>
-        <h1>Teste</h1>
-      </Section.Hero>
+      <Section.Hero transparent />
     </Form.Root>
   );
 }

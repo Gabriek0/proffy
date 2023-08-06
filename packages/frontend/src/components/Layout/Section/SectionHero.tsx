@@ -1,11 +1,15 @@
-import { ReactNode } from 'react';
+import Image from 'next/image';
+import Proffy from '/public/Proffy.svg';
+import ProffyTransparent from '/public/ProffyTransparent.svg';
 
 interface SectionProps {
-  children: ReactNode;
+  transparent?: boolean;
 }
 
-export function SectionHero({ children }: SectionProps) {
+export function SectionHero({ transparent }: SectionProps) {
   return (
-    <section className="h-full w-[50%] bg-purple-300 ">{children}</section>
+    <section className="relative flex items-center justify-center h-full w-[50%] bg-purple-300 ">
+      <Image src={transparent ? ProffyTransparent : Proffy} alt="Proffy" fill />
+    </section>
   );
 }
