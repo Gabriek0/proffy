@@ -8,6 +8,8 @@ export default async function CreateAccountPage() {
     <Form.Root>
       <Section.Form>
         <Form.Content>
+          <Form.BackButton />
+
           <Form.Title>Cadastro</Form.Title>
 
           <Form.Subtitle>

@@ -6,7 +6,10 @@ interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
 
 export function FormContent({ children, ...rest }: FormProps) {
   return (
-    <form className="w-[22rem] mt-[2rem]" {...rest}>
+    <form
+      className="relative flex flex-col item-center justify-center h-full w-fit mt-[2rem]"
+      {...rest}
+    >
       {children}
     </form>
   );

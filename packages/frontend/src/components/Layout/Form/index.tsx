@@ -1,3 +1,4 @@
+import { FormBackButton } from './FormBackButton';
 import { FormContent } from './FormContent';
 import { FormRoot } from './FormRoot';
 import { FormSubtitle } from './FormSubtitle';
@@ -8,4 +9,5 @@ export const Form = {
   Content: FormContent,
   Title: FormTitle,
   Subtitle: FormSubtitle,
+  BackButton: FormBackButton,
 };
