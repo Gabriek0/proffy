@@ -32,7 +32,7 @@ export default async function CreateAccountPage() {
             <Input.Content label="Senha" name="password" type="password" />
           </Input.Root>
 
-          <Button>Concluir Cadastro</Button>
+          <Button className="mt-[2.5rem]">Concluir Cadastro</Button>
         </Form.Content>
       </Section.Form>
 
