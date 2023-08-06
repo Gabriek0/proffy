@@ -1,11 +1,12 @@
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { Form } from '../../components/Layout/Form';
+import { Section } from '../../components/Layout/Section';
 
 export default async function CreateAccountPage() {
   return (
     <Form.Root>
-      <section className="flex justify-center items-center p-[2rem] h-full w-1/2">
+      <Section.Form>
         <Form.Content>
           <Form.Title>Cadastro</Form.Title>
 
@@ -31,9 +32,11 @@ export default async function CreateAccountPage() {
 
           <Button>Concluir Cadastro</Button>
         </Form.Content>
-      </section>
+      </Section.Form>
 
-      <section className="h-full w-[50%] bg-purple-300 "></section>
+      <Section.Hero>
+        <h1>Teste</h1>
+      </Section.Hero>
     </Form.Root>
   );
 }
