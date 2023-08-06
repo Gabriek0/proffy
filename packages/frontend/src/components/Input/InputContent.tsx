@@ -18,7 +18,7 @@ export function InputContent({ name, label, ...rest }: InputProps) {
       </label>
       <input
         name={name}
-        className="h-[4.5rem] w-[22rem] font-poppins px-[24px] mt-[2px] bg-transparent outline-none  text-purple-500 font-medium text-[16px]"
+        className="h-[4.5rem] w-[22rem] min-w-[280px] font-poppins px-[24px] mt-[2px] bg-transparent outline-none  text-purple-500 font-medium text-[16px] sm:w-full"
         {...rest}
       />
     </>

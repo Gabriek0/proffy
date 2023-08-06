@@ -8,7 +8,7 @@ interface SectionProps {
 
 export function SectionHero({ transparent }: SectionProps) {
   return (
-    <section className="relative flex items-center justify-center h-full w-[50%] bg-purple-300 ">
+    <section className="relative flex items-center justify-center h-full w-[50%] bg-purple-300 lg:hidden">
       <Image src={transparent ? ProffyTransparent : Proffy} alt="Proffy" fill />
     </section>
   );
