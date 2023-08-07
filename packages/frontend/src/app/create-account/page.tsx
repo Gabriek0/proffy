@@ -1,3 +1,6 @@
+'use client';
+
+import { Eye } from 'phosphor-react';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { Form } from '../../components/Layout/Form';
@@ -30,6 +33,8 @@ export default async function CreateAccountPage() {
 
           <Input.Root variantStyle="bottomRounded">
             <Input.Content label="Senha" name="password" type="password" />
+
+            <Input.Icon icon={Eye} />
           </Input.Root>
 
           <Button className="mt-[2.5rem]">Concluir Cadastro</Button>

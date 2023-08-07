@@ -1,6 +1,5 @@
-'use client';
-
 import { ChangeEvent, InputHTMLAttributes, useState } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
@@ -20,9 +19,11 @@ export function InputContent({ name, label, ...rest }: InputProps) {
 
       <label
         htmlFor={name}
-        className={`absolute text-gray-40 text-[18px] leading[24px] font-normal top-[24px] bottom-0 mx-auto left-[24px] group-focus-within:top-[8px] group-focus-within:text-[14px] group-focus-within:text-gray-50 ${
-          inputValue && 'top-[8px] text-[14px] text-gray-50'
-        }`}
+        className={twMerge(
+          `absolute text-gray-40 text-[18px] leading[24px] font-normal top-[24px] bottom-0 mx-auto left-[24px] group-focus-within:top-[8px] group-focus-within:text-[14px] group-focus-within:text-gray-50, ${
+            inputValue && 'top-[8px] text-[14px] text-gray-50'
+          }`
+        )}
       >
         {label}
       </label>
