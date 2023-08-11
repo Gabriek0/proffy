@@ -45,9 +45,9 @@ export default function CreateAccountPage() {
 
             <button type="button" onClick={handleShowPassword}>
               {isShowPassword ? (
-                <Input.Icon icon={EyeSlash} />
-              ) : (
                 <Input.Icon icon={Eye} />
+              ) : (
+                <Input.Icon icon={EyeSlash} />
               )}
             </button>
           </Input.Root>
