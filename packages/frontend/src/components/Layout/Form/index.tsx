@@ -7,9 +7,9 @@ import { FormTitle } from './FormTitle';
 
 export const Form = {
   Root: FormRoot,
-  Content: FormContent,
   Title: FormTitle,
+  Error: FormError,
+  Content: FormContent,
   Subtitle: FormSubtitle,
   BackButton: FormBackButton,
-  Error: FormError,
 };

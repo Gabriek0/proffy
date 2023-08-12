@@ -1,6 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { checkIfPasswordIsStrong } from 'packages/frontend/utils/check-if-password-is-strong';
 import { Eye, EyeSlash, WarningCircle } from 'phosphor-react';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
@@ -22,7 +23,15 @@ const createAccountSchema = z
       .nonempty()
       .transform((value) => convertToCapitalize(value)),
     email: z.string().nonempty().email(),
-    password: z.string().nonempty(),
+    password: z
+      .string()
+      .nonempty('.')
+      .min(4, { message: 'A senha deve ter no mínimo 4 caracteres' })
+      .max(20, { message: 'A senha deve ter no máximo 20 caracteres' })
+      .refine((value) => checkIfPasswordIsStrong(value), {
+        message:
+          'A senha deve conter caracteres especiais, letras maíusculas, minúsculas e números.',
+      }),
   })
   .transform(({ first_name, last_name, email, password }) => ({
     name: `${first_name} ${last_name}`,
