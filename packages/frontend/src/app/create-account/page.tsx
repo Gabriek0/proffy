@@ -48,7 +48,7 @@ export default function CreateAccountPage() {
     resolver: zodResolver(createAccountSchema),
   });
 
-  const { errors } = methods.formState;
+  const { errors, isSubmitting } = methods.formState;
 
   const [isShowPassword, setIsShowPassword] = useState(false);
 
@@ -122,7 +122,11 @@ export default function CreateAccountPage() {
 
             {errors && <Form.Error>{errors.password?.message}</Form.Error>}
 
-            <Button type="submit" className="mt-[2.5rem]">
+            <Button
+              type="submit"
+              className="mt-[2.5rem]"
+              loading={isSubmitting}
+            >
               Concluir Cadastro
             </Button>
           </Form.Content>
