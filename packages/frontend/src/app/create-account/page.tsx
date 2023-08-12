@@ -1,6 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { api } from 'packages/frontend/lib/axios';
 import { checkIfPasswordIsStrong } from 'packages/frontend/utils/check-if-password-is-strong';
 import { Eye, EyeSlash, WarningCircle } from 'phosphor-react';
 import { useState } from 'react';
@@ -51,8 +52,19 @@ export default function CreateAccountPage() {
 
   const [isShowPassword, setIsShowPassword] = useState(false);
 
-  const onSubmit = (form: CreateAccountSchemaInput) => {
-    const data = form as unknown as CreateAccountSchemaOutput;
+  const onSubmit = async (form: CreateAccountSchemaInput) => {
+    const { name, email, password } =
+      form as unknown as CreateAccountSchemaOutput;
+
+    try {
+      await api.post('/user', {
+        name: name,
+        email: email,
+        password: password,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleShowPassword = () => setIsShowPassword((prev) => !prev);
