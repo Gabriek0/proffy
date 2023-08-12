@@ -12,6 +12,7 @@ module.exports = {
         '2xl': { max: '1536px' },
       },
       colors: {
+        red: '#f75a68',
         white: '#FFFFFF',
         green: '#04D361',
         background: '#F0F0F7',

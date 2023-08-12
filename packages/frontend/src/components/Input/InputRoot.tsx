@@ -14,7 +14,9 @@ export function InputRoot({ children, variantStyle }: InputProps) {
         `border-t-[1px] rounded-t-[8px]`
       } ${
         variantStyle && variantStyle === `bottomRounded` && ` rounded-b-[8px]`
-      }`}
+      }
+
+      `}
     >
       {children}
     </div>
