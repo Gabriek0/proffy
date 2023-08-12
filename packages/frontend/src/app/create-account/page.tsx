@@ -51,8 +51,8 @@ export default function CreateAccountPage() {
 
   const [isShowPassword, setIsShowPassword] = useState(false);
 
-  const onSubmit = (form: any) => {
-    console.log(form);
+  const onSubmit = (form: CreateAccountSchemaInput) => {
+    const data = form as unknown as CreateAccountSchemaOutput;
   };
 
   const handleShowPassword = () => setIsShowPassword((prev) => !prev);
