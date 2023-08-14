@@ -1,6 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/navigation';
 import { api } from 'packages/frontend/lib/axios';
 import { checkIfPasswordIsStrong } from 'packages/frontend/utils/check-if-password-is-strong';
 import { Eye, EyeSlash, WarningCircle } from 'phosphor-react';
@@ -44,6 +45,7 @@ type CreateAccountSchemaInput = z.input<typeof createAccountSchema>;
 type CreateAccountSchemaOutput = z.output<typeof createAccountSchema>;
 
 export default function CreateAccountPage() {
+  const router = useRouter();
   const methods = useForm<CreateAccountSchemaInput>({
     resolver: zodResolver(createAccountSchema),
   });
@@ -62,6 +64,8 @@ export default function CreateAccountPage() {
         email: email,
         password: password,
       });
+
+      router.push('/successfull?message=create-account');
     } catch (error) {
       console.log(error);
     }
