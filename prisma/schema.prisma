@@ -24,6 +24,8 @@ model User {
   Favorites   Favorites[]
 
   createdAt DateTime @default(now())
+
+  @@map("user")
 }
 
 model Class {
@@ -38,6 +40,8 @@ model Class {
   Favorites      Favorites[]
 
   createdAt DateTime @default(now())
+
+  @@map("class")
 }
 
 model ClassSchedule {
@@ -50,6 +54,8 @@ model ClassSchedule {
   classId Int
 
   createdAt DateTime @default(now())
+
+  @@map("classSchedule")
 }
 
 model Connections {
@@ -59,6 +65,8 @@ model Connections {
   userId Int
 
   createdAt DateTime @default(now())
+
+  @@map("connections")
 }
 
 model Favorites {
@@ -71,4 +79,6 @@ model Favorites {
   classId Int
 
   createdAt DateTime @default(now())
+
+  @@map("favorites")
 }
