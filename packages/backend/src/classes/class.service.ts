@@ -11,9 +11,9 @@ export class ClassService {
     return this.prisma.class.create({ data });
   }
 
-  update(data: UpdateClassDto, id: number) {
-    return this.prisma.class.update({
-      data,
+  async update(id: number, data: UpdateClassDto) {
+    await this.prisma.class.updateMany({
+      data: { ...data },
       where: {
         id,
       },
