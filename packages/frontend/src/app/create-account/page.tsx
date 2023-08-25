@@ -137,7 +137,7 @@ export default function CreateAccountPage() {
         </FormProvider>
       </Section.Form>
 
-      <Section.Hero transparent />
+      <Section.Hero />
     </Form.Root>
   );
 }
