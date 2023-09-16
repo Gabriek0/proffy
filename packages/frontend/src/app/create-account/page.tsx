@@ -48,6 +48,8 @@ export default function CreateAccountPage() {
   };
 
   const handleShowPassword = () => setIsShowPassword((prev) => !prev);
+  const renderMessageError = (value: string | undefined) =>
+    value?.replace('#', '');
 
   return (
     <Form.Root>
@@ -100,7 +102,11 @@ export default function CreateAccountPage() {
               )}
             </Input.Root>
 
-            {errors && <Form.Error>{errors.password?.message}</Form.Error>}
+            {errors && (
+              <Form.Error>
+                {renderMessageError(errors.password?.message)}
+              </Form.Error>
+            )}
 
             <Button
               type="submit"

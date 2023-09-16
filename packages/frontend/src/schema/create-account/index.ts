@@ -1,6 +1,6 @@
-import { checkIfPasswordIsStrong } from 'packages/frontend/utils/check-if-password-is-strong';
-import { convertToCapitalize } from 'packages/frontend/utils/convert-to-capitalize';
 import * as z from 'zod';
+import { convertToCapitalize } from 'packages/frontend/utils/convert-to-capitalize';
+import { checkIfPasswordIsStrong } from 'packages/frontend/utils/check-if-password-is-strong';
 
 /* const checkPasswordStrong = () => {
   const env = process.env.NODE_ENV;
@@ -36,7 +36,7 @@ export const createAccountSchema = z
     email: z.string().nonempty().email(),
     password: z
       .string()
-      .nonempty()
+      .nonempty('#')
       .min(4, { message: 'A senha deve ter no mínimo 4 caracteres' })
       .max(20, { message: 'A senha deve ter no máximo 20 caracteres' })
       .refine((value) => checkIfPasswordIsStrong(value), {
