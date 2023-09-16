@@ -1,34 +1,80 @@
 'use client';
 
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 import { Header } from '../../components/Header';
+import { Select } from '../../components/Select';
 import { ArrowRight, ProffyLogo } from '../../icons';
 
+const classFilters = z.object({
+  class: z.string(),
+});
+
+type ClassFilterSchemaInput = z.input<typeof classFilters>;
+type ClassFilterSchemaOutout = z.output<typeof classFilters>;
+
 export default function CreateClassPage() {
+  const methods = useForm<ClassFilterSchemaInput>({
+    resolver: zodResolver(classFilters),
+  });
+
   return (
-    <Header.Root>
-      <Header.NavRoot>
+    <>
+      <Header.Root>
+        <Header.NavRoot>
+          <Header.NavIcon>
+            <ArrowRight />
+          </Header.NavIcon>
 
-        <Header.NavIcon>
-          <ArrowRight />
-        </Header.NavIcon>
+          <Header.NavPageName pageName="Estudar" />
 
-        <Header.NavPageName pageName="Estudar" />
+          <Header.NavLogo>
+            <ProffyLogo />
+          </Header.NavLogo>
+        </Header.NavRoot>
+        <Header.ContentRoot>
+          <Header.ContentText>
+            Estes são os <br />
+            proffys disponíveis.
+          </Header.ContentText>
 
-        <Header.NavLogo>
-          <ProffyLogo />
-        </Header.NavLogo>
+          <Header.ContentInfo />
+        </Header.ContentRoot>
+      </Header.Root>
 
-      </Header.NavRoot>
-      <Header.ContentRoot>
+      <div className="flex items-center justify-center m-[-45px]">
+        <div className="flex justify-between w-[800px]">
+          <Select.Root>
+            <Select.Title title="Matéria" labelFor="class" />
+            <Select.Options
+              selectId="class"
+              options={['matemática', 'portugues']}
+            />
+          </Select.Root>
 
-        <Header.ContentText>
-          Estes são os <br />
-          proffys disponíveis.
-        </Header.ContentText>
+          <Select.Root>
+            <Select.Title title="Dia da semana" labelFor="weekDay" />
+            <Select.Options
+              selectId="weekDay"
+              options={[
+                'segunda',
+                'terça',
+                'quarta',
+                'quinta',
+                'sexta',
+                'sábado',
+                'domingo',
+              ]}
+            />
+          </Select.Root>
 
-        <Header.ContentInfo />
-        
-      </Header.ContentRoot>
-    </Header.Root>
+          <Select.Root>
+            <Select.Title title="Horário" labelFor="class" />
+            <Select.Options selectId="class" options={['00:00']} />
+          </Select.Root>
+        </div>
+      </div>
+    </>
   );
 }
