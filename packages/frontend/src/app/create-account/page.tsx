@@ -3,46 +3,20 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { api } from 'packages/frontend/lib/axios';
-import { checkIfPasswordIsStrong } from 'packages/frontend/utils/check-if-password-is-strong';
 import { Eye, EyeSlash, WarningCircle } from 'phosphor-react';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import * as z from 'zod';
-import { convertToCapitalize } from '../../../utils/convert-to-capitalize';
+
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { Form } from '../../components/Layout/Form';
 import { Section } from '../../components/Layout/Section';
 
-const createAccountSchema = z
-  .object({
-    first_name: z
-      .string()
-      .nonempty()
-      .transform((value) => convertToCapitalize(value)),
-    last_name: z
-      .string()
-      .nonempty()
-      .transform((value) => convertToCapitalize(value)),
-    email: z.string().nonempty().email(),
-    password: z
-      .string()
-      .nonempty('.')
-      .min(4, { message: 'A senha deve ter no mínimo 4 caracteres' })
-      .max(20, { message: 'A senha deve ter no máximo 20 caracteres' })
-      .refine((value) => checkIfPasswordIsStrong(value), {
-        message:
-          'A senha deve conter caracteres especiais, letras maíusculas, minúsculas e números.',
-      }),
-  })
-  .transform(({ first_name, last_name, email, password }) => ({
-    name: `${first_name} ${last_name}`,
-    email,
-    password,
-  }));
-
-type CreateAccountSchemaInput = z.input<typeof createAccountSchema>;
-type CreateAccountSchemaOutput = z.output<typeof createAccountSchema>;
+import {
+  CreateAccountSchemaInput,
+  CreateAccountSchemaOutput,
+  createAccountSchema,
+} from '../../schema/create-account';
 
 export default function CreateAccountPage() {
   const router = useRouter();
@@ -59,7 +33,9 @@ export default function CreateAccountPage() {
       form as unknown as CreateAccountSchemaOutput;
 
     try {
-      await api.post('/user', {
+      console.log('Aqui');
+
+      await api.post('http://localhost:3000/api/user', {
         name: name,
         email: email,
         password: password,
