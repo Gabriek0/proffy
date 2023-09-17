@@ -40,7 +40,7 @@ export default function SucessfullPage() {
     };
 
     return message[msg] || message['create-account'];
-  }, []);
+  }, [msg]);
 
   return (
     <Success.Root>

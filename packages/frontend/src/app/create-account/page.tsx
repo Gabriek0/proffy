@@ -2,7 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
-import { api } from 'packages/frontend/lib/axios';
+import { api } from '@front/lib/axios';
 import { Eye, EyeSlash, WarningCircle } from 'phosphor-react';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';

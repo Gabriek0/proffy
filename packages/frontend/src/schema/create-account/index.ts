@@ -1,8 +1,9 @@
 import * as z from 'zod';
-import { convertToCapitalize } from 'packages/frontend/utils/convert-to-capitalize';
-import { checkIfPasswordIsStrong } from 'packages/frontend/utils/check-if-password-is-strong';
 
-/* const checkPasswordStrong = () => {
+import { convertToCapitalize } from '@front/utils/convert-to-capitalize';
+import { checkIfPasswordIsStrong } from '@front/utils/check-if-password-is-strong';
+
+/*  const checkPasswordStrong = () => {
   const env = process.env.NODE_ENV;
 
   if (env === 'production') {
@@ -21,7 +22,7 @@ import { checkIfPasswordIsStrong } from 'packages/frontend/utils/check-if-passwo
     .string()
     .min(4, { message: 'A senha deve conter no mínimo 4 caracteres' })
     .nonempty('');
-}; */
+};  */
 
 export const createAccountSchema = z
   .object({
