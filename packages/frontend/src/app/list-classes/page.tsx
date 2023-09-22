@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { Header } from '../../components/Header';
 import { Select } from '../../components/Select';
 import { ArrowRight, ProffyLogo } from '../../icons';
+import ClassCard from '../../components/ClassCard';
 
 const classFilters = z.object({
   class: z.string(),
@@ -43,7 +44,7 @@ export default function CreateClassPage() {
         </Header.ContentRoot>
       </Header.Root>
 
-      <div className="flex items-center justify-center m-[-45px]">
+      <div className="flex items-center justify-center mt-[-45px]">
         <div className="flex justify-between w-[800px]">
           <Select.Root>
             <Select.Title title="Matéria" labelFor="class" />
@@ -74,6 +75,10 @@ export default function CreateClassPage() {
             <Select.Options selectId="class" options={['00:00']} />
           </Select.Root>
         </div>
+      </div>
+
+      <div className="flex items-center justify-center mt-28">
+        <ClassCard />
       </div>
     </>
   );
