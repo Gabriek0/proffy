@@ -7,7 +7,9 @@ export function SelectOptions({ options, selectId }: SelectOptionsProps) {
   return (
     <select
       id={selectId}
-      className="max-w-xs border rounded bg-white border-gray-20 text-sm outline-0 py-2 min-w-[200px] text-gray-400"
+      className="
+        bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5
+       focus:ring-blue-500 focus:border-blue-500 "
     >
       {options.map((option) => (
         <option value={option}>{option}</option>

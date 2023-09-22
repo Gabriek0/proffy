@@ -5,5 +5,5 @@ interface SelectRootProps {
 }
 
 export function SelectRoot({ children }: SelectRootProps) {
-  return <div className="flex flex-col">{children}</div>;
+  return <div className="flex flex-col w-40">{children}</div>;
 }
