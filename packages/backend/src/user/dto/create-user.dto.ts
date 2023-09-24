@@ -1,10 +1,10 @@
-/* import {
+import {
   IsEmail,
   IsString,
   Matches,
   MaxLength,
   MinLength,
-} from 'class-validator'; */
+} from 'class-validator';
 
 import { ApiProperty } from '@nestjs/swagger';
 import { User } from '../entities/user.entity';
@@ -15,7 +15,7 @@ export class CreateUserDTO extends User {
     description: 'Username',
     required: true,
   })
-  /*  @IsString() */
+  @IsString()
   name: string;
 
   @ApiProperty({
@@ -23,7 +23,7 @@ export class CreateUserDTO extends User {
     example: 'example@example.com',
     required: true,
   })
-  /*  @IsEmail() */
+  @IsEmail()
   email: string;
 
   @ApiProperty({
@@ -33,11 +33,11 @@ export class CreateUserDTO extends User {
     maximum: 20,
     required: true,
   })
-  /*   @IsString()
-  @MinLength(4)
+  @IsString()
+  /*   @MinLength(4)
   @MaxLength(20)
   @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
     message: 'Your password is too weak',
-  }) */
+  })  */
   password: string;
 }
