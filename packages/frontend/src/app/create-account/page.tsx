@@ -48,6 +48,7 @@ export default function CreateAccountPage() {
   };
 
   const handleShowPassword = () => setIsShowPassword((prev) => !prev);
+
   const renderMessageError = (value: string | undefined) =>
     value?.replace('#', '');
 

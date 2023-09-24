@@ -35,7 +35,7 @@ export const createAccountSchema = z
       .nonempty()
       .transform((value) => convertToCapitalize(value)),
     email: z.string().nonempty().email(),
-    password: z.string().nonempty(),
+    password: z.string().nonempty('#'),
     // .min(4, { message: 'A senha deve ter no mínimo 4 caracteres' })
     // .max(20, { message: 'A senha deve ter no máximo 20 caracteres' })
     /* .refine((value) => checkIfPasswordIsStrong(value), {
