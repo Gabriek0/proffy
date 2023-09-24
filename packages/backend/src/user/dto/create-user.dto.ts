@@ -1,10 +1,10 @@
-import {
+/* import {
   IsEmail,
   IsString,
   Matches,
   MaxLength,
   MinLength,
-} from 'class-validator';
+} from 'class-validator'; */
 
 import { ApiProperty } from '@nestjs/swagger';
 import { User } from '../entities/user.entity';
