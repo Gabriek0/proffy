@@ -9,6 +9,7 @@ import { Form } from '../../components/Layout/Form';
 import { Section } from '../../components/Layout/Section';
 import { LoginUserSchema, loginUserSchema } from '@front/schema/login';
 import { Checkbox } from '@front/components/Checkbox';
+import Link from 'next/link';
 
 export default function CreateAccountPage() {
   const methods = useForm<LoginUserSchema>({
@@ -65,7 +66,16 @@ export default function CreateAccountPage() {
               )}
             </Input.Root>
 
-            <Checkbox label="Lembrar-me" />
+            <div className="flex items-center justify-between">
+              <Checkbox label="Lembrar-me" />
+
+              <Link
+                href="#"
+                className="cursor-pointer text-gray-40 text-base font-medium"
+              >
+                Esqueci minha senha
+              </Link>
+            </div>
 
             {errors && (
               <Form.Error>
