@@ -25,7 +25,7 @@ export class ClassService {
   }
 
   findAll() {
-    return this.prisma.class.findMany();
+    return this.prisma.class.findMany({ include: { owner: true } });
   }
 
   findOne(id: number) {

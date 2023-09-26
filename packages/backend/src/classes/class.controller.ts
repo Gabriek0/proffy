@@ -9,7 +9,7 @@ import {
   Post,
   UseInterceptors,
 } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { ClassService } from './class.service';
 import { CreateClassDto } from './dto/create-class.dto';
 import { GetClassDto } from './dto/get-class.dto';
@@ -44,6 +44,7 @@ export class ClassController {
   }
 
   @Get()
+  @ApiOkResponse({ type: GetManyClassDto })
   async findAll() {
     const result = await this.classService.findAll();
 

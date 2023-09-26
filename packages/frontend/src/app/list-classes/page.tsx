@@ -6,7 +6,7 @@ import { z } from 'zod';
 import { Header } from '../../components/Header';
 import { Select } from '../../components/Select';
 import { ArrowRight, ProffyLogo } from '../../icons';
-import ClassCard from '../../components/ClassCard';
+import { ClassCard } from '../../components/ClassCard';
 
 const classFilters = z.object({
   class: z.string(),
@@ -77,9 +77,7 @@ export default function CreateClassPage() {
         </div>
       </div>
 
-      <div className="flex items-center justify-center mt-28">
-        <ClassCard />
-      </div>
+      <div className="flex items-center justify-center mt-28"></div>
     </>
   );
 }
