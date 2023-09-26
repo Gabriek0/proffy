@@ -8,6 +8,7 @@ import { Input } from '../../components/Input';
 import { Form } from '../../components/Layout/Form';
 import { Section } from '../../components/Layout/Section';
 import { LoginUserSchema, loginUserSchema } from '@front/schema/login';
+import { Checkbox } from '@front/components/Checkbox';
 
 export default function CreateAccountPage() {
   const methods = useForm<LoginUserSchema>({
@@ -63,6 +64,8 @@ export default function CreateAccountPage() {
                 </button>
               )}
             </Input.Root>
+
+            <Checkbox label="Lembrar-me" />
 
             {errors && (
               <Form.Error>
