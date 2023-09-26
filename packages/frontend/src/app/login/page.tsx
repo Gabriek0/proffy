@@ -67,7 +67,10 @@ export default function CreateAccountPage() {
             </Input.Root>
 
             <div className="flex items-center justify-between">
-              <Checkbox label="Lembrar-me" />
+              <Checkbox.Root>
+                <Checkbox.Box checked={true} onCheckChange={() => {}} />
+                <Checkbox.Label>Lembrar-me</Checkbox.Label>
+              </Checkbox.Root>
 
               <Link
                 href="#"
