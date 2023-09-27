@@ -86,11 +86,7 @@ export default function CreateAccountPage() {
               </Form.Error>
             )}
 
-            <Button
-              type="submit"
-              className="mt-[2.5rem]"
-              loading={isSubmitting}
-            >
+            <Button type="submit" className="mt-4" loading={isSubmitting}>
               Entrar
             </Button>
 

@@ -6,6 +6,8 @@ interface FormProps {
 
 export function FormForgotPassword(props: FormProps) {
   return (
-    <div className="flex items-center justify-between">{props.children}</div>
+    <div className="flex items-center justify-between px-[.20rem]">
+      {props.children}
+    </div>
   );
 }
