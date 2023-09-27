@@ -38,7 +38,7 @@ export default function CreateAccountPage() {
       <Section.Form>
         <FormProvider {...methods}>
           <Form.Content onSubmit={methods.handleSubmit(onSubmit)}>
-            <Form.Title>Fazer login</Form.Title>
+            <Form.Title className="mb-10">Fazer login</Form.Title>
 
             <Input.Root variantStyle="topRounded">
               <Input.Content label="E-mail" name="email" />
