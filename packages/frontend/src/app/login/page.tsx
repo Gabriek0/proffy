@@ -66,7 +66,7 @@ export default function CreateAccountPage() {
               )}
             </Input.Root>
 
-            <div className="flex items-center justify-between">
+            <Form.ForgotPassword>
               <Checkbox.Root>
                 <Checkbox.Box checked={true} onCheckChange={() => {}} />
                 <Checkbox.Label>Lembrar-me</Checkbox.Label>
@@ -78,7 +78,7 @@ export default function CreateAccountPage() {
               >
                 Esqueci minha senha
               </Link>
-            </div>
+            </Form.ForgotPassword>
 
             {errors && (
               <Form.Error>
@@ -93,6 +93,8 @@ export default function CreateAccountPage() {
             >
               Entrar
             </Button>
+
+            <Form.Footer />
           </Form.Content>
         </FormProvider>
       </Section.Form>
