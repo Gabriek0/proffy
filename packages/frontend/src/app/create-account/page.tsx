@@ -1,8 +1,8 @@
 'use client';
 
+import { api } from '@front/lib/axios';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
-import { api } from '@front/lib/axios';
 import { Eye, EyeSlash, WarningCircle } from 'phosphor-react';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
@@ -33,8 +33,6 @@ export default function CreateAccountPage() {
       form as unknown as CreateAccountSchemaOutput;
 
     try {
-      console.log('Aqui');
-
       await api.post('http://localhost:3000/api/user', {
         name: name,
         email: email,
