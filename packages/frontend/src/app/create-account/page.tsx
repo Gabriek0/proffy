@@ -33,7 +33,7 @@ export default function CreateAccountPage() {
       form as unknown as CreateAccountSchemaOutput;
 
     try {
-      await api.post('http://localhost:3000/api/user', {
+      await api.post('/user', {
         name: name,
         email: email,
         password: password,
