@@ -4,10 +4,10 @@ interface FormProps {
   children: ReactNode;
 }
 
-export function FormForgotPassword(props: FormProps) {
+export function FormForgotPassword({ children }: FormProps) {
   return (
     <div className="flex items-center justify-between px-[.20rem]">
-      {props.children}
+      {children}
     </div>
   );
 }
