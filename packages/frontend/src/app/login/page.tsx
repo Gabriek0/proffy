@@ -1,15 +1,15 @@
 'use client';
-import { useState } from 'react';
+import { Checkbox } from '@front/components/Checkbox';
+import { LoginUserSchema, loginUserSchema } from '@front/schema/login';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { FormProvider, useForm } from 'react-hook-form';
+import Link from 'next/link';
 import { Eye, EyeSlash, WarningCircle } from 'phosphor-react';
+import { useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { Form } from '../../components/Layout/Form';
 import { Section } from '../../components/Layout/Section';
-import { LoginUserSchema, loginUserSchema } from '@front/schema/login';
-import { Checkbox } from '@front/components/Checkbox';
-import Link from 'next/link';
 
 export default function CreateAccountPage() {
   const methods = useForm<LoginUserSchema>({
@@ -20,9 +20,7 @@ export default function CreateAccountPage() {
 
   const [isShowPassword, setIsShowPassword] = useState(false);
 
-  const onSubmit = async (form: LoginUserSchema): Promise<void> => {
-    console.log(form);
-
+  const onSubmit = async (_: LoginUserSchema): Promise<void> => {
     return;
   };
 
