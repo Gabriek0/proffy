@@ -6,12 +6,12 @@ interface CheckboxProps {
   onCheckChange: (checked: CheckedState) => void;
 }
 
-export function Checkbox(props: CheckboxProps) {
+export function Checkbox({ checked, onCheckChange }: CheckboxProps) {
   return (
     <Box
       id="checkbox"
-      checked={props.checked}
-      onCheckedChange={props.onCheckChange}
+      checked={checked}
+      onCheckedChange={onCheckChange}
       className="border-[1px] border-solid border-gray-30"
     />
   );
