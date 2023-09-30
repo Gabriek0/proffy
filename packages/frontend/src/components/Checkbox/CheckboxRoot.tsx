@@ -4,10 +4,8 @@ interface CheckboxProps {
   children: ReactNode;
 }
 
-export function CheckboxRoot(props: CheckboxProps) {
+export function CheckboxRoot({ children }: CheckboxProps) {
   return (
-    <div className="flex items-center items-top space-x-2 my-4 ">
-      {props.children}
-    </div>
+    <div className="flex items-center items-top space-x-2 my-4">{children}</div>
   );
 }
