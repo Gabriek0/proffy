@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsEmail } from 'class-validator';
 import { AuthUser } from '../entities/auth-user.entity';
 
-class AuthUserDTO implements AuthUser {
+export class AuthUserDTO implements AuthUser {
   @IsEmail()
   @ApiProperty({
     description: 'User email',
