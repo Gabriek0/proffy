@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail } from 'class-validator';
+import { IsEmail, IsString } from 'class-validator';
 import { AuthUser } from '../entities/auth-user.entity';
 
 export class AuthUserDTO implements AuthUser {
@@ -18,5 +18,6 @@ export class AuthUserDTO implements AuthUser {
     maximum: 20,
     required: true,
   })
+  @IsString()
   password: string;
 }
