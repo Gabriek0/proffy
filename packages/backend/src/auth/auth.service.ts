@@ -21,22 +21,22 @@ export class AuthService {
 
   async signIn({ email, password }: AuthUserDTO): Promise<IResponse> {
     const user = await this.userService.find(email);
-
-    if (!user) throw new Error('User not found');
-
     const isValidPassword = await bcrypt.compare(password, user.passwordHash);
 
-    if (!isValidPassword) throw new UnauthorizedException();
+    if (!isValidPassword)
+      throw new UnauthorizedException('Password do not match');
 
     const payload = { sub: user.id, name: user.name };
     const accessToken = await this.jwtService.signAsync(payload);
 
-    return {
+    const response: IResponse = {
       user: {
-        name: user.name,
         email: user.email,
+        name: user.name,
       },
       accessToken,
     };
+
+    return response;
   }
 }
