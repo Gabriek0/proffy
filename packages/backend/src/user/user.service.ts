@@ -27,7 +27,9 @@ export class UserService {
   async find(email: string): Promise<User> {
     const user = await this.prisma.user.findFirst({ where: { email } });
 
-    if (!user) throw new NotFoundException('User was not found.');
+    if (!user) {
+      throw new NotFoundException('User was not found.');
+    }
 
     return user;
   }

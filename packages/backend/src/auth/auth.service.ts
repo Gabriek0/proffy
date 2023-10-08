@@ -23,8 +23,9 @@ export class AuthService {
     const user = await this.userService.find(email);
     const isValidPassword = await bcrypt.compare(password, user.passwordHash);
 
-    if (!isValidPassword)
+    if (!isValidPassword) {
       throw new UnauthorizedException('Password do not match');
+    }
 
     const payload = { sub: user.id, name: user.name };
     const accessToken = await this.jwtService.signAsync(payload);
