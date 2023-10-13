@@ -1,8 +1,8 @@
 import { useRouter } from 'next/navigation';
-import { BackButton } from 'packages/frontend/src/icons';
+import { BackButton } from '@front/icons/index';
 import { ButtonHTMLAttributes } from 'react';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function FormBackButton({ ...rest }: ButtonProps) {
   const router = useRouter();

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Done } from 'packages/frontend/src/icons';
+import { Done } from '@front/icons/index';
 import { ReactNode } from 'react';
 import BackgroundSpots from '/public/BackgroundSpots.svg';
 

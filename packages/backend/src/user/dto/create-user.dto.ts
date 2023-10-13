@@ -1,10 +1,4 @@
-import {
-  IsEmail,
-  IsString,
-  Matches,
-  MaxLength,
-  MinLength,
-} from 'class-validator';
+import { IsEmail, IsString } from 'class-validator';
 
 import { ApiProperty } from '@nestjs/swagger';
 import { User } from '../entities/user.entity';
@@ -34,10 +28,10 @@ export class CreateUserDTO extends User {
     required: true,
   })
   @IsString()
-  @MinLength(4)
+  /*   @MinLength(4)
   @MaxLength(20)
   @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
     message: 'Your password is too weak',
-  })
+  })  */
   password: string;
 }
