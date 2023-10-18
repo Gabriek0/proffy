@@ -5,8 +5,10 @@ import {
   Get,
   NotFoundException,
   Param,
+  ParseIntPipe,
   Patch,
   Post,
+  Query,
   UseInterceptors,
 } from '@nestjs/common';
 import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
@@ -20,7 +22,7 @@ import { UpdateClassDto } from './dto/update-class.dto';
 @Controller('class')
 @UseInterceptors(ClassSerializerInterceptor)
 export class ClassController {
-  constructor(private readonly classService: ClassService) {}
+  constructor(private readonly classService: ClassService) { }
 
   @Post()
   create(@Body() body: CreateClassDto) {
@@ -45,8 +47,16 @@ export class ClassController {
 
   @Get()
   @ApiOkResponse({ type: GetManyClassDto })
-  async findAll() {
-    const result = await this.classService.findAll();
+  async find(
+    @Query('weekDay', ParseIntPipe) weekDay: number,
+    @Query('subject') subject: string,
+    @Query('time', ParseIntPipe) time: number,
+  ) {
+    const result = await this.classService.findAll({
+      subject,
+      time,
+      weekDay
+    });
 
     if (!result) {
       throw new NotFoundException();

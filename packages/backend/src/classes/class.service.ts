@@ -5,7 +5,7 @@ import { UpdateClassDto } from './dto/update-class.dto';
 
 @Injectable()
 export class ClassService {
-  constructor(private readonly prisma: DatabaseService) {}
+  constructor(private readonly prisma: DatabaseService) { }
 
   create(data: CreateClassDto) {
     return this.prisma.class.create({ data });
@@ -24,8 +24,21 @@ export class ClassService {
     return this.prisma.class.delete({ where: { id } });
   }
 
-  findAll() {
-    return this.prisma.class.findMany({ include: { owner: true } });
+  findAll({ subject, time, weekDay }: { weekDay?: number, subject?: string, time?: number }) {
+    return this.prisma.class.findMany({
+      include: { owner: true }, where: {
+        subject,
+        ClassSchedules: {
+          every: {
+            weekDay,
+            from: {
+              gte: time,
+              lte: time
+            }
+          }
+        }
+      }
+    });
   }
 
   findOne(id: number) {
