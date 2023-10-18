@@ -1,5 +1,6 @@
 {
   "editor.formatOnSave": true,
+  "material-icon-theme.activeIconPack": "nest",
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
   }
