@@ -192,19 +192,13 @@ export const ClassApiAxiosParamCreator = function (configuration?: Configuration
         },
         /**
          * 
-         * @param {number} weekDay 
-         * @param {string} subject 
-         * @param {number} time 
+         * @param {string} [subject] 
+         * @param {number} [cost] 
+         * @param {number} [weekDay] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        classControllerFind: async (weekDay: number, subject: string, time: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'weekDay' is not null or undefined
-            assertParamExists('classControllerFind', 'weekDay', weekDay)
-            // verify required parameter 'subject' is not null or undefined
-            assertParamExists('classControllerFind', 'subject', subject)
-            // verify required parameter 'time' is not null or undefined
-            assertParamExists('classControllerFind', 'time', time)
+        classControllerFind: async (subject?: string, cost?: number, weekDay?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/class`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -217,16 +211,16 @@ export const ClassApiAxiosParamCreator = function (configuration?: Configuration
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            if (weekDay !== undefined) {
-                localVarQueryParameter['weekDay'] = weekDay;
-            }
-
             if (subject !== undefined) {
                 localVarQueryParameter['subject'] = subject;
             }
 
-            if (time !== undefined) {
-                localVarQueryParameter['time'] = time;
+            if (cost !== undefined) {
+                localVarQueryParameter['cost'] = cost;
+            }
+
+            if (weekDay !== undefined) {
+                localVarQueryParameter['weekDay'] = weekDay;
             }
 
 
@@ -334,14 +328,14 @@ export const ClassApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} weekDay 
-         * @param {string} subject 
-         * @param {number} time 
+         * @param {string} [subject] 
+         * @param {number} [cost] 
+         * @param {number} [weekDay] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async classControllerFind(weekDay: number, subject: string, time: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetManyClassDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.classControllerFind(weekDay, subject, time, options);
+        async classControllerFind(subject?: string, cost?: number, weekDay?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetManyClassDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.classControllerFind(subject, cost, weekDay, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -386,14 +380,14 @@ export const ClassApiFactory = function (configuration?: Configuration, basePath
         },
         /**
          * 
-         * @param {number} weekDay 
-         * @param {string} subject 
-         * @param {number} time 
+         * @param {string} [subject] 
+         * @param {number} [cost] 
+         * @param {number} [weekDay] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        classControllerFind(weekDay: number, subject: string, time: number, options?: any): AxiosPromise<GetManyClassDto> {
-            return localVarFp.classControllerFind(weekDay, subject, time, options).then((request) => request(axios, basePath));
+        classControllerFind(subject?: string, cost?: number, weekDay?: number, options?: any): AxiosPromise<GetManyClassDto> {
+            return localVarFp.classControllerFind(subject, cost, weekDay, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -434,14 +428,14 @@ export interface ClassApiInterface {
 
     /**
      * 
-     * @param {number} weekDay 
-     * @param {string} subject 
-     * @param {number} time 
+     * @param {string} [subject] 
+     * @param {number} [cost] 
+     * @param {number} [weekDay] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClassApiInterface
      */
-    classControllerFind(weekDay: number, subject: string, time: number, options?: AxiosRequestConfig): AxiosPromise<GetManyClassDto>;
+    classControllerFind(subject?: string, cost?: number, weekDay?: number, options?: AxiosRequestConfig): AxiosPromise<GetManyClassDto>;
 
     /**
      * 
@@ -484,15 +478,15 @@ export class ClassApi extends BaseAPI implements ClassApiInterface {
 
     /**
      * 
-     * @param {number} weekDay 
-     * @param {string} subject 
-     * @param {number} time 
+     * @param {string} [subject] 
+     * @param {number} [cost] 
+     * @param {number} [weekDay] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ClassApi
      */
-    public classControllerFind(weekDay: number, subject: string, time: number, options?: AxiosRequestConfig) {
-        return ClassApiFp(this.configuration).classControllerFind(weekDay, subject, time, options).then((request) => request(this.axios, this.basePath));
+    public classControllerFind(subject?: string, cost?: number, weekDay?: number, options?: AxiosRequestConfig) {
+        return ClassApiFp(this.configuration).classControllerFind(subject, cost, weekDay, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

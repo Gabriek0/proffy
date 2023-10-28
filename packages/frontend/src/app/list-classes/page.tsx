@@ -7,6 +7,8 @@ import { Header } from '../../components/Header';
 import { Select } from '../../components/Select';
 import { ArrowRight, ProffyLogo } from '../../icons';
 import { ClassCard } from '../../components/ClassCard';
+import { useCallback, useEffect, useState } from 'react';
+import { listClass } from '../services/api/classApi';
 
 const classFilters = z.object({
   class: z.string(),
@@ -16,9 +18,24 @@ type ClassFilterSchemaInput = z.input<typeof classFilters>;
 type ClassFilterSchemaOutout = z.output<typeof classFilters>;
 
 export default function CreateClassPage() {
+  const [classes, setClasses] = useState<any>([]);
+
   const methods = useForm<ClassFilterSchemaInput>({
     resolver: zodResolver(classFilters),
   });
+
+  const listClass = useCallback(async () => {
+    const response = await listClass()
+
+    console.log(response)
+
+    setClasses(response)
+  }, [])
+
+
+  useEffect(() => {
+    listClass()
+  }, [listClass])
 
   return (
     <>
