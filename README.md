@@ -23,6 +23,10 @@ npx prisma generate
 # create the database
 npx prisma db push
 
+# seed the database
+npx prisma db seed
+
+# run the backend
 npm run dev:back
 ```
 
