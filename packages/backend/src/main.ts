@@ -1,5 +1,6 @@
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import fs from 'fs';
 
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app/app.module';
@@ -26,7 +27,10 @@ async function bootstrap() {
     .setDescription('An schedule app')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api/swagger', app, document);
+
+  fs.writeFileSync('./swagger-spec.json', JSON.stringify(document));
+
+  SwaggerModule.setup('api/swagger', app, document, {});
 
   await app.listen(port);
 
