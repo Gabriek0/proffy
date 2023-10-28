@@ -36,13 +36,20 @@ export class ClassService {
     return this.prisma.class.findMany({
       include: { owner: true },
       where: {
-        subject,
+        subject: {
+          contains: subject,
+        },
         ClassSchedules: {
-          every: {
-            weekDay,
+          some: {
+            weekDay: {
+              gte: Number(weekDay),
+              lte: Number(weekDay),
+            },
             from: {
-              gte: time,
-              lte: time,
+              gte: Number(time),
+            },
+            to: {
+              lte: Number(time),
             },
           },
         },
