@@ -37,19 +37,19 @@ export class ClassService {
       include: { owner: true },
       where: {
         subject: {
-          contains: subject,
+          contains: subject ? subject : undefined,
         },
         ClassSchedules: {
           some: {
             weekDay: {
-              gte: Number(weekDay),
-              lte: Number(weekDay),
+              gte: weekDay ? Number(weekDay) : undefined,
+              lte: weekDay ? Number(weekDay) : undefined,
             },
             from: {
-              gte: Number(time),
+              gte: time ? Number(time) : undefined,
             },
             to: {
-              lte: Number(time),
+              lte: time ? Number(time) : undefined,
             },
           },
         },
