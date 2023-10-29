@@ -8,7 +8,8 @@ import { Select } from '../../components/Select';
 import { ArrowRight, ProffyLogo } from '../../icons';
 import { ClassCard } from '../../components/ClassCard';
 import { useCallback, useEffect, useState } from 'react';
-import { listClass } from '../services/api/classApi';
+import { listClassApi } from '../services/api/classApi';
+import { GetClassDto, GetManyClassDto } from '@open-api';
 
 const classFilters = z.object({
   class: z.string(),
@@ -18,24 +19,17 @@ type ClassFilterSchemaInput = z.input<typeof classFilters>;
 type ClassFilterSchemaOutout = z.output<typeof classFilters>;
 
 export default function CreateClassPage() {
-  const [classes, setClasses] = useState<any>([]);
+  const [classes, setClasses] = useState<GetManyClassDto['classes']>([]);
 
   const methods = useForm<ClassFilterSchemaInput>({
     resolver: zodResolver(classFilters),
   });
 
-  const listClass = useCallback(async () => {
-    const response = await listClass()
-
-    console.log(response)
-
-    setClasses(response)
-  }, [])
-
-
   useEffect(() => {
-    listClass()
-  }, [listClass])
+    listClassApi().then((data: any) => setClasses(data));
+  }, []);
+
+  console.log('classes', classes);
 
   return (
     <>
@@ -94,7 +88,38 @@ export default function CreateClassPage() {
         </div>
       </div>
 
-      <div className="flex items-center justify-center mt-28"></div>
+      <div className="flex flex-col items-center justify-center mt-28">
+        {classes.length &&
+          classes.map((item) => (
+            <ClassCard.Root key={item.id}>
+              <ClassCard.TeacherInfo.Root>
+                <ClassCard.TeacherInfo.Avatar
+                  imageUrl={
+                    item.owner.avatarUrl ??
+                    'https://avatars.githubusercontent.com/u/52966246?v=4'
+                  }
+                  alt="proffy"
+                />
+
+                <ClassCard.TeacherInfo.ClassInfo
+                  className={item.subject}
+                  teacherName={item.owner.name}
+                />
+              </ClassCard.TeacherInfo.Root>
+
+              <ClassCard.TeacherBio>{item.owner.bio}</ClassCard.TeacherBio>
+
+              <ClassCard.ScheduleRoot>
+                <ClassCard.ScheduleItem hour="123" weekDay="1" />
+              </ClassCard.ScheduleRoot>
+
+              <ClassCard.FooterRoot>
+                <ClassCard.FooterPrice price={item.cost} />
+                <ClassCard.FooterButton />
+              </ClassCard.FooterRoot>
+            </ClassCard.Root>
+          ))}
+      </div>
     </>
   );
 }

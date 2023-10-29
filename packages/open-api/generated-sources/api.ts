@@ -26,6 +26,68 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError } from './base';
 /**
  * 
  * @export
+ * @interface AuthUserDTO
+ */
+export interface AuthUserDTO {
+    /**
+     * User email
+     * @type {string}
+     * @memberof AuthUserDTO
+     */
+    'email': string;
+    /**
+     * User password
+     * @type {string}
+     * @memberof AuthUserDTO
+     */
+    'password': string;
+}
+/**
+ * 
+ * @export
+ * @interface ClassOwner
+ */
+export interface ClassOwner {
+    /**
+     * 
+     * @type {string}
+     * @memberof ClassOwner
+     */
+    'name': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ClassOwner
+     */
+    'email': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ClassOwner
+     */
+    'passwordHash': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ClassOwner
+     */
+    'avatarUrl': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ClassOwner
+     */
+    'whatsapp': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ClassOwner
+     */
+    'bio': string;
+}
+/**
+ * 
+ * @export
  * @interface CreateClassDto
  */
 export interface CreateClassDto {
@@ -109,6 +171,12 @@ export interface GetClassDto {
      * @memberof GetClassDto
      */
     'createdAt': string;
+    /**
+     * 
+     * @type {ClassOwner}
+     * @memberof GetClassDto
+     */
+    'owner': ClassOwner;
 }
 /**
  * 
@@ -581,6 +649,41 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
+         * @param {AuthUserDTO} authUserDTO 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        authControllerSignIn: async (authUserDTO: AuthUserDTO, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'authUserDTO' is not null or undefined
+            assertParamExists('authControllerSignIn', 'authUserDTO', authUserDTO)
+            const localVarPath = `/api/auth`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(authUserDTO, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {CreateUserDTO} createUserDTO 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -644,6 +747,16 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {AuthUserDTO} authUserDTO 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async authControllerSignIn(authUserDTO: AuthUserDTO, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.authControllerSignIn(authUserDTO, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
          * @param {CreateUserDTO} createUserDTO 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -677,6 +790,15 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         appControllerListUsers(options?: any): AxiosPromise<void> {
             return localVarFp.appControllerListUsers(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {AuthUserDTO} authUserDTO 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        authControllerSignIn(authUserDTO: AuthUserDTO, options?: any): AxiosPromise<void> {
+            return localVarFp.authControllerSignIn(authUserDTO, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -714,6 +836,15 @@ export interface DefaultApiInterface {
 
     /**
      * 
+     * @param {AuthUserDTO} authUserDTO 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApiInterface
+     */
+    authControllerSignIn(authUserDTO: AuthUserDTO, options?: AxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * 
      * @param {CreateUserDTO} createUserDTO 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -748,6 +879,17 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
      */
     public appControllerListUsers(options?: AxiosRequestConfig) {
         return DefaultApiFp(this.configuration).appControllerListUsers(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {AuthUserDTO} authUserDTO 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public authControllerSignIn(authUserDTO: AuthUserDTO, options?: AxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).authControllerSignIn(authUserDTO, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

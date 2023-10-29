@@ -1,5 +1,5 @@
 interface ClassCardFooterPriceProps {
-  price: string;
+  price: number;
 }
 
 export function ClassCardFooterPrice({ price }: ClassCardFooterPriceProps) {
