@@ -11,33 +11,13 @@ import {
   Query,
   UseInterceptors,
 } from '@nestjs/common';
-import {
-  ApiOkResponse,
-  ApiParam,
-  ApiProperty,
-  ApiPropertyOptional,
-  ApiTags,
-} from '@nestjs/swagger';
+import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { ClassService } from './class.service';
 import { CreateClassDto } from './dto/create-class.dto';
 import { GetClassDto } from './dto/get-class.dto';
 import { GetManyClassDto } from './dto/get-many-class.dto';
 import { UpdateClassDto } from './dto/update-class.dto';
-import { IsOptional } from 'class-validator';
-
-class ClassFilters {
-  @ApiPropertyOptional()
-  @IsOptional()
-  subject?: string;
-
-  @ApiPropertyOptional()
-  @IsOptional()
-  cost?: number;
-
-  @ApiPropertyOptional()
-  @IsOptional()
-  weekDay?: number;
-}
+import { ClassFilters } from './dto/class-filters.dto';
 
 @ApiTags('Class')
 @Controller('class')
