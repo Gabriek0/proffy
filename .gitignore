@@ -40,4 +40,7 @@ Thumbs.db
 
 # Next.js
 .next
+
+openapitools.json
+swagger-spec.json
 .env

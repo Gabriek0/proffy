@@ -1,0 +1,29 @@
+{
+  "name": "open-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/open-api/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/open-api",
+        "main": "packages/open-api/src/index.ts",
+        "tsConfig": "packages/open-api/tsconfig.lib.json",
+        "assets": ["packages/open-api/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/open-api/**/*.ts"]
+      }
+    },
+    "generate": {
+      "executor": ""
+    }
+  },
+  "tags": []
+}
