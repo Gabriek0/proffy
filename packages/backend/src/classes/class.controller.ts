@@ -5,19 +5,19 @@ import {
   Get,
   NotFoundException,
   Param,
-  ParseIntPipe,
   Patch,
   Post,
   Query,
   UseInterceptors,
 } from '@nestjs/common';
 import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
+
 import { ClassService } from './class.service';
+import { ClassFilters } from './dto/class-filters.dto';
 import { CreateClassDto } from './dto/create-class.dto';
 import { GetClassDto } from './dto/get-class.dto';
 import { GetManyClassDto } from './dto/get-many-class.dto';
 import { UpdateClassDto } from './dto/update-class.dto';
-import { ClassFilters } from './dto/class-filters.dto';
 
 @ApiTags('Class')
 @Controller('class')

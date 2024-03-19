@@ -1,15 +1,16 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { GetManyClassDto } from '@open-api';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+
+import { ClassCard } from '../../components/ClassCard';
 import { Header } from '../../components/Header';
 import { Select } from '../../components/Select';
 import { ArrowRight, ProffyLogo } from '../../icons';
-import { ClassCard } from '../../components/ClassCard';
-import { useEffect, useState } from 'react';
 import { listClassApi } from '../services/api/classApi';
-import { GetManyClassDto } from '@open-api';
 
 const classFilters = z.object({
   class: z.string(),

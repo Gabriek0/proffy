@@ -9,7 +9,7 @@
 Env setup your .env file with local database connection:
 
 ```
- DATABASE_URL="mysql://root:docker@localhost:3306/proffy?schema=public"
+ DATABASE_URL=":postgres//postgres:docker@localhost:5432/proffy?schema=public"
 ```
 
 Run docker compose: `docker compose up -d`

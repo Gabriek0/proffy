@@ -1,6 +1,7 @@
-import Image from 'next/image';
 import { Done } from '@front/icons/index';
+import Image from 'next/image';
 import { ReactNode } from 'react';
+
 import BackgroundSpots from '/public/BackgroundSpots.svg';
 
 interface SuccessProps {

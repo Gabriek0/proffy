@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+
 import { DatabaseService } from '../database/database.service';
 import { CreateClassDto } from './dto/create-class.dto';
 import { UpdateClassDto } from './dto/update-class.dto';
