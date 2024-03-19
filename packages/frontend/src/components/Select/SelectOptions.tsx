@@ -12,7 +12,7 @@ export function SelectOptions({ options, selectId }: SelectOptionsProps) {
        focus:ring-blue-500 focus:border-blue-500 "
     >
       {options.map((option) => (
-        <option value={option}>{option}</option>
+        <option key={option} value={option}>{option}</option>
       ))}
     </select>
   );

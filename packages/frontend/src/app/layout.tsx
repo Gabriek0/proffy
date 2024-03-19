@@ -1,5 +1,6 @@
-import { Poppins } from 'next/font/google';
 import './global.css';
+
+import { Poppins } from 'next/font/google';
 
 export const metadata = {
   title: 'Proffy',

@@ -1,6 +1,5 @@
-import * as z from 'zod';
-
 import { convertToCapitalize } from '@front/utils/convert-to-capitalize';
+import * as z from 'zod';
 // import { checkIfPasswordIsStrong } from '@front/utils/check-if-password-is-strong';
 
 /*  const checkPasswordStrong = () => {

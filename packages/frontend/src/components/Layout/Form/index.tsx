@@ -1,11 +1,11 @@
-import { FormRoot } from './FormRoot';
-import { FormTitle } from './FormTitle';
+import { FormBackButton } from './FormBackButton';
+import { FormContent } from './FormContent';
 import { FormError } from './FormError';
 import { FormFooter } from './FormFooter';
-import { FormContent } from './FormContent';
-import { FormSubtitle } from './FormSubtitle';
-import { FormBackButton } from './FormBackButton';
 import { FormForgotPassword } from './FormForgotPassword';
+import { FormRoot } from './FormRoot';
+import { FormSubtitle } from './FormSubtitle';
+import { FormTitle } from './FormTitle';
 
 export const Form = {
   Root: FormRoot,

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+
 import Proffy from '/public/Proffy.svg';
 
 export function SectionHero() {

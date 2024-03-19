@@ -1,6 +1,6 @@
-import { CheckboxRoot } from './CheckboxRoot';
-import { CheckboxLabel } from './CheckboxLabel';
 import { Checkbox as Box } from './Checkbox';
+import { CheckboxLabel } from './CheckboxLabel';
+import { CheckboxRoot } from './CheckboxRoot';
 
 export const Checkbox = {
   Box: Box,
