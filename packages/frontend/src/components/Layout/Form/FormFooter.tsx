@@ -1,4 +1,4 @@
-import { PurpleHeart } from '@front/icons';
+/* import { PurpleHeart } from '@front/icons'; */
 import Link from 'next/link';
 
 export function FormFooter() {
@@ -18,7 +18,7 @@ export function FormFooter() {
 
       <section className="flex items-center gap-[.5rem]">
         <p className="text-gray-40 font-normal text-sm">É de graça</p>
-        <PurpleHeart />
+        {/* <PurpleHeart /> */}
       </section>
     </footer>
   );
